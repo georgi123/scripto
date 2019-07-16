@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+case $1 in
+
+  -h|--help)
+
+    echo "use -h or --help to show help menu"
+    echo "use -c or --cpu to see proccesses that used more cpu"
+    echo "use -m or --mem to see proccesses that used more memmory"
+    ;;
+  -c|--cpu)
+
+    ps -eo %cpu,%mem,cmd,user|sort -n -rk1|head -$2
+    ;;
+  -m|--mem)
+
+    ps -eo %mem,%cpu,cmd,user|sort -n -rk1|head -$2
+
+   ;;
+   *)
+   ;;
+esac
